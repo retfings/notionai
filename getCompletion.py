@@ -1,0 +1,38 @@
+import requests
+cookie_string = 'notion_browser_id=3c34717e-788e-444e-9046-c846eb331da6; _gcl_au=1.1.190130877.1681781881; cb_user_id=null; cb_group_id=null; cb_anonymous_id=%22bd64e1af-4999-4e0e-8157-62b89fcbce80%22; _tt_enable_cookie=1; _ttp=P1IhuHdd8kUCpSL7ABcl35abShk; intercom-id-gpfdrxfd=79ff6747-0a21-4c4a-9539-42040a2063a5; intercom-device-id-gpfdrxfd=3e628c96-d57e-4d05-9d73-69ba421b5d38; _fbp=fb.1.1681781884126.2082877238; _ga=GA1.1.129722488.1681781884; token_v2=v02%3Auser_token_or_cookies%3AghLNDMAN1kRuevtgnq1c0VzdoJTQdmjaDpV7wZdNlo1wCLVcZsmEtqO4iReTnKefofkhY1_DiftGA31iWeiFFg0lYdo1_TgSQG6vPNH8aV2UkEostEaW9NcEN0OEM6DTGvLN; notion_user_id=ade9a941-67a2-4210-aba5-3e7b64949051; notion_users=[%22ade9a941-67a2-4210-aba5-3e7b64949051%22]; ps_mode=trackingV1; ajs_anonymous_id=3c34717e788e444e9046c846eb331da6; _cioid=ade9a94167a24210aba53e7b64949051; notion_check_cookie_consent=false; _mkto_trk=id:414-XMY-838&token:_mch-www.notion.so-1682436366309-97734; NEXT_LOCALE=en-US; tatari-cookie-test=79616409; _ga_9ZJ8CB186L=GS1.1.1682480040.4.1.1682481107.38.0.0; notion_cookie_consent={%22id%22:%22ca5288b4-7149-4f88-8977-4099c6574725%22%2C%22permission%22:{%22necessary%22:true%2C%22targeting%22:true%2C%22preference%22:true%2C%22performance%22:true}%2C%22policy_version%22:%22v7%22}; notion_locale=en-US/legacy; tatari-session-cookie=ef5ffae6-7904-092d-9808-61b4de37ad56; intercom-session-gpfdrxfd=aFRyTXRsWFZ4eTFBZ3ZnRUdramdYMk1DcW4vUlVTamdIRzhGWHVxZkZOWlRSelNGVkYwc1dOeVl3VGRjY2pFaS0tUnVRcVBNMDdqZzZBazYzSEdGSHZ3UT09--f8cc3879d8ae4292829950243a2371666e06a1bc; __cf_bm=fvsAjSBHT9BjPnFRY_85CnaD7ANh62AcXiqah2C0Cd8-1682491949-0-AVgOtrouOxxpH6qiAwrkUUbu0OthxoF9ftkwpz6AKjkNSYNGtbbYFcqg+hAuEzXGrVi1O4TJCo6gl6XwWeFN9A0=; amp_af43d4=3c34717e788e444e9046c846eb331da6.YWRlOWE5NDE2N2EyNDIxMGFiYTUzZTdiNjQ5NDkwNTE=..1guu5bh2n.1guu63db7.ii.8r.rd'
+cookies = {}
+# __cf_bm 不一样
+for cookie in cookie_string.split('; '):
+    key, value = cookie.split('=', 1)
+    cookies[key] = value
+new_cookies   = 'notion_browser_id=3c34717e-788e-444e-9046-c846eb331da6; _gcl_au=1.1.190130877.1681781881; cb_user_id=null; cb_group_id=null; cb_anonymous_id=%22bd64e1af-4999-4e0e-8157-62b89fcbce80%22; _tt_enable_cookie=1; _ttp=P1IhuHdd8kUCpSL7ABcl35abShk; intercom-id-gpfdrxfd=79ff6747-0a21-4c4a-9539-42040a2063a5; intercom-device-id-gpfdrxfd=3e628c96-d57e-4d05-9d73-69ba421b5d38; _fbp=fb.1.1681781884126.2082877238; _ga=GA1.1.129722488.1681781884; token_v2=v02%3Auser_token_or_cookies%3AghLNDMAN1kRuevtgnq1c0VzdoJTQdmjaDpV7wZdNlo1wCLVcZsmEtqO4iReTnKefofkhY1_DiftGA31iWeiFFg0lYdo1_TgSQG6vPNH8aV2UkEostEaW9NcEN0OEM6DTGvLN; notion_user_id=ade9a941-67a2-4210-aba5-3e7b64949051; notion_users=[%22ade9a941-67a2-4210-aba5-3e7b64949051%22]; ps_mode=trackingV1; ajs_anonymous_id=3c34717e788e444e9046c846eb331da6; _cioid=ade9a94167a24210aba53e7b64949051; notion_check_cookie_consent=false; _mkto_trk=id:414-XMY-838&token:_mch-www.notion.so-1682436366309-97734; NEXT_LOCALE=en-US; tatari-cookie-test=79616409; _ga_9ZJ8CB186L=GS1.1.1682480040.4.1.1682481107.38.0.0; notion_cookie_consent={%22id%22:%22ca5288b4-7149-4f88-8977-4099c6574725%22%2C%22permission%22:{%22necessary%22:true%2C%22targeting%22:true%2C%22preference%22:true%2C%22performance%22:true}%2C%22policy_version%22:%22v7%22}; notion_locale=en-US/legacy; tatari-session-cookie=ef5ffae6-7904-092d-9808-61b4de37ad56; intercom-session-gpfdrxfd=aFRyTXRsWFZ4eTFBZ3ZnRUdramdYMk1DcW4vUlVTamdIRzhGWHVxZkZOWlRSelNGVkYwc1dOeVl3VGRjY2pFaS0tUnVRcVBNMDdqZzZBazYzSEdGSHZ3UT09--f8cc3879d8ae4292829950243a2371666e06a1bc; __cf_bm=.Y6QTG7VAUzTNEUztxDRpocY.lAc6FMcVeiqKxfMYNk-1682493789-0-AfdWkl6Dt89+NiwstFx+PDrX6TmspDYGEPiMr/3dWE5MEmc/UhGZgyH5y0u6YrZ6Qaf89kHTKGPDf42r7rGWj0o=; amp_af43d4=3c34717e788e444e9046c846eb331da6.YWRlOWE5NDE2N2EyNDIxMGFiYTUzZTdiNjQ5NDkwNTE=..1guu5bh2n.1guu7550p.j7.8r.s2'
+from loguru import logger as log
+log.info(cookies)
+
+
+
+
+
+header = {
+    "x-notion-active-user-header": "ade9a941-67a2-4210-aba5-3e7b64949051",
+    "origin": "https://www.notion.so",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.58"
+}
+# data = {
+#     # c9f09b39dd223394a800b1782f07cc1b
+#     "id": "dd257613-528e-4b3b-b264-663401c28a33",
+#     "context": {
+#         "type": "helpMeWrite",
+#         "pageTitle": "php",
+#         "previousContent": "",
+#         "restContent": "PHP is a popular server-side scripting language that is widely used for web development. In this tutorial, we will cover the basics of PHP and provide some examples of how to use it.\r\n\r\n## Getting Started with PHP\r\n\r\nBefore you start coding in PHP, you will need to install a web server and a PHP interpreter on your computer. There are many popular web servers available, including Apache, Nginx, and IIS. Once you have installed a web server, you can download and install PHP from the official PHP website.\r\n\r\nAfter installing PHP, you can create a new PHP file with a .php extension. This file can contain HTML, CSS, and JavaScript code, as well as PHP code. To execute the PHP code in the file, you will need to save the file in the web server's document root directory and access it using a web browser.\r\n\r\n## Basic Syntax\r\n\r\nPHP code is enclosed in <?php and ?> tags. Here is an example:\r\n\r\n```\r\n<?php\r\necho \"Hello, World!\";\r\n?>\r\n\r\n```\r\n\r\nThis code will output the text \"Hello, World!\" to the web page.\r\n\r\n## Variables\r\n\r\nIn PHP, variables are used to store values. A variable name starts with a dollar sign ($) followed by the name of the variable. Here is an example:\r\n\r\n```\r\n<?php\r\n$name = \"John\";\r\necho \"My name is \" . $name;\r\n?>\r\n\r\n```\r\n\r\nThis code will output \"My name is John\" to the web page.\r\n\r\n## Operators\r\n\r\nPHP supports many operators, including arithmetic, comparison, and logical operators. Here are some examples:\r\n\r\n```\r\n<?php\r\n$x = 5;\r\n$y = 10;\r\necho $x + $y; // Output: 15\r\necho $x == $y; // Output: false\r\necho $x < $y && $y > 5; // Output: true\r\n?>\r\n\r\n```\r\n\r\n## Control Structures\r\n\r\nPHP provides several control structures, including if-else statements, loops, and switch statements. Here are some examples:\r\n\r\n```\r\n<?php\r\nif ($x < $y) {\r\n  echo \"x is less than y\";\r\n} else {\r\n  echo \"x is greater than or equal to y\";\r\n}\r\n\r\nfor ($i = 0; $i < 10; $i++) {\r\n  echo $i;\r\n}\r\n\r\nswitch ($x) {\r\n  case 1:\r\n    echo \"x is 1\";\r\n    break;\r\n  case 2:\r\n    echo \"x is 2\";\r\n    break;\r\n  default:\r\n    echo \"x is neither 1 nor 2\";\r\n}\r\n?>\r\n\r\n```\r\n\r\n## Functions\r\n\r\nIn PHP, functions are used to group related code into reusable blocks. Here is an example:\r\n\r\n```\r\n<?php\r\nfunction greet($name) {\r\n  echo \"Hello, \" . $name;\r\n}\r\n\r\ngreet(\"John\");\r\n?>\r\n\r\n```\r\n\r\nThis code will output \"Hello, John\" to the web page.\r\n\r\n## Conclusion\r\n\r\nIn this tutorial, we have covered the basics of PHP, including syntax, variables, operators, control structures, and functions. With this knowledge, you can start creating dynamic web pages and applications using PHP.",
+#         "prompt": "翻译"
+#     },
+#     "model": "openai-3",
+#     "spaceId": "3133fae2-38d4-481d-9fc2-3bfc3df0325e",
+#     "isSpacePermission": False
+# }
+# r = requests.post('https://www.notion.so/api/v3/getCompletion',cookies=cookies,headers=header,data=data)
+
+# from loguru import logger as log
+# log.info(r.json())
